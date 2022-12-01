@@ -5,6 +5,7 @@ import { LayotBlankComponent } from './components/layot-blank/layot-blank.compon
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '../views/navbar/navbar.component';
 import { FooterComponent } from '../views/footer/footer.component';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { FooterComponent } from '../views/footer/footer.component';
     NavbarComponent,
     FooterComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, PipesModule],
   exports: [NavbarComponent, FooterComponent],
 })
 export class SharedModule {}

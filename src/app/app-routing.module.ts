@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayotAuthComponent } from './shared/components/layot-auth/layot-auth.component';
 import { LayotBlankComponent } from './shared/components/layot-blank/layot-blank.component';
+import { AuthGuard, AuthGuard2 } from './shared/guards/auth.guard';
 import { NotfoundModule } from './views/notfound/notfound.module';
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
       },
       {
         path: 'lib',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./views/lib/lib.module').then((m) => m.LibModule),
         title: 'Lib',
@@ -70,6 +72,7 @@ const routes: Routes = [
   // LazyLoading Routing For Autho
   {
     path: 'auth',
+    canActivate: [AuthGuard2],
     component: LayotAuthComponent,
     children: [
       {

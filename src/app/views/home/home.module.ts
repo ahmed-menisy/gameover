@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PipesModule } from './../../shared/pipes/pipes.module';
+
 @NgModule({
   declarations: [HomeComponent],
   imports: [

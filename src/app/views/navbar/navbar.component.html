@@ -288,7 +288,7 @@
 
       <!-- Right  -->
       <ul
-        class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center flex-row gap-4 gap-md-0"
+        class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center flex-row gap-4 gap-lg-0"
       >
         <li class="nav-item">
           <a class="nav-link" href="javascript:void" routerLink="/search">
@@ -296,19 +296,25 @@
           </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" appNotlogin>
           <a class="nav-link" href="javascript:void" routerLink="/lib">
             <i class="fa-solid fa-clone"></i>
           </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" applogin>
           <a class="nav-link" href="javascript:void" routerLink="/auth/signin">
             Log In
           </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" appNotlogin>
+          <a class="nav-link" href="javascript:void" (click)="signOut()">
+            SignOut
+          </a>
+        </li>
+
+        <li class="nav-item" applogin>
           <a
             class="nav-link cu-btn ms-lg-3"
             href="javascript:void"

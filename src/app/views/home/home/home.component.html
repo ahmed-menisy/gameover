@@ -13,6 +13,7 @@
 
       <div class="butns-start">
         <button
+          applogin
           class="text-uppercase btn-r btn-blue me-2"
           routerLink="/auth/signup"
         >
@@ -44,7 +45,7 @@
 
     <!-- ----- Recomedned Area ----- -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <div class="col" *ngFor="let game of games | slice: 0:3">
+      <div class="col" *ngFor="let game of games | slice : 0 : 3">
         <article
           class="card overflow-hidden shadow bg-transparent cp"
           (mouseenter)="playVideo(vid, spinner)"
@@ -65,7 +66,7 @@
               muted="true"
               loop
               class="w-100 h-100 position-absolute top-0 start-0 d-none"
-              [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+              [src]="game.thumbnail | sliceuntile : 'videoplayback.webm'"
             ></video>
 
             <!-- Spinner  -->
@@ -111,7 +112,7 @@
 
           <!-- Area  -->
           <article
-            *ngFor="let game of games | slice: 10:20"
+            *ngFor="let game of games | slice : 10 : 20"
             class="mb-3"
             (mouseenter)="playVideo(vid, spinner)"
             (mouseleave)="stopVideo(vid, spinner)"
@@ -134,7 +135,7 @@
                     muted="true"
                     loop
                     class="w-100 h-100 position-absolute top-0 start-0 d-none"
-                    [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+                    [src]="game.thumbnail | sliceuntile : 'videoplayback.webm'"
                   ></video>
 
                   <!-- Spinner  -->
@@ -155,7 +156,9 @@
                 <!-- Text  -->
                 <figcaption class="text flex-grow-1">
                   <h3 class="h5">{{ game.title }}</h3>
-                  <p class="small">{{ game.short_description | term: 7 }}...</p>
+                  <p class="small">
+                    {{ game.short_description | term : 7 }}...
+                  </p>
                   <span class="badge bg-second2 text-dark fs-10">{{
                     game.genre
                   }}</span>
@@ -190,7 +193,7 @@
           </div>
 
           <article
-            *ngFor="let game of games | slice: 20:25"
+            *ngFor="let game of games | slice : 20 : 25"
             class="mb-3 cp"
             (mouseenter)="playVideo(vid, spinner)"
             (mouseleave)="stopVideo(vid, spinner)"
@@ -208,7 +211,7 @@
                 muted="true"
                 loop
                 class="w-100 h-100 position-absolute top-0 start-0 d-none"
-                [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+                [src]="game.thumbnail | sliceuntile : 'videoplayback.webm'"
               ></video>
 
               <!-- Spinner  -->
@@ -255,7 +258,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col" *ngFor="let game of games | slice: 22:24">
+      <div class="col" *ngFor="let game of games | slice : 22 : 24">
         <article class="card card-body bg-dark">
           <figure class="d-md-flex gap-4">
             <!-- img  -->
@@ -284,8 +287,7 @@
            from this game and made a fantastic game on pc. I can reccommend
            this game for everyone that likes open world
            
-           "
-                    | term: 30
+           " | term : 30
                 }}...
               </p>
 
@@ -333,7 +335,7 @@
           <div
             class="d-flex align-items-center justify-content-md-start justify-content-center gap-3"
           >
-            <button class="btn-r btn-blue" routerLink="/auth/signup">
+            <button class="btn-r btn-blue" routerLink="/auth/signup" applogin>
               Join Now
             </button>
             <button class="btn-r btn-light" routerLink="/aboutus">

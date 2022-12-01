@@ -1,19 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";
 @import "./assets/scss/_custome";
 @import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
-
+@import "ngx-toastr/toastr";
 body {
   background-color: $main-color;
   height: 100%;
   width: 100%;
   color: $second-color;
 }
+@media screen and (max-width: 576px) {
+  :root {
+    font-size: 11px;
+  }
+
+  .btn-r {
+    font-size: 10px !important;
+    padding: 5px;
+  }
+}
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,12 +29,12 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: $dark-color;
-  border-radius: 50px;
+  border-radius: 3.125rem;
 }
 
 // ------------------------------------ Custome font
 .fs-10 {
-  font-size: 10px !important;
+  font-size: 0.625rem !important;
 }
 // ------------------------------------ Custome Colors
 .c-blue {
@@ -70,13 +77,18 @@ body {
   text-align: center;
 
   background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0.75rem 1rem;
-  font-size: 0.9375rem;
+  border: 0.0625rem solid transparent;
+  padding: 12px 16px;
+  font-size: 15px;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .btn-blue {
@@ -103,7 +115,7 @@ body {
 }
 
 .card-img-top {
-  height: 138px;
+  height: 8.625rem;
 }
 
 .custom-select__option--value {
@@ -114,11 +126,11 @@ body {
 .custom-select__dropdown {
   background-color: $dark-color !important;
   border: unset !important;
-  border-radius: 5px;
-  padding: 10px 20px;
+  border-radius: 0.3125rem;
+  padding: 0.625rem 1.25rem;
   width: unset;
   overflow-y: auto !important;
-  max-height: 300px;
+  max-height: 18.75rem;
 }
 
 .custom-select__option {
@@ -136,13 +148,14 @@ body {
   border: unset;
   outline: unset;
 
-  font-size: 14px;
-  height: 50px;
-
+  font-size: 0.875rem;
+  height: 3.125rem;
+  color: $second-color;
   &:focus {
     box-shadow: unset;
-    color: $second-color;
+
     background-color: $dark-color;
+    color: $second-color !important;
   }
 
   &::-webkit-inner-spin-button,

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environments } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,43 +11,33 @@ export class GamesService {
 
   // Get Games API
   getGames(): Observable<any> {
-    return this._HttpClient.get(
-      `https://free-to-play-games-database.p.rapidapi.com/api/games`
-    );
+    return this._HttpClient.get(`${environments.gamesApi}`);
   }
 
   // Get Games By Id
   getGamesId(id: number): Observable<any> {
-    return this._HttpClient.get(
-      `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`
-    );
+    return this._HttpClient.get(`${environments.gameApi}?id=${id}`);
   }
 
   //Get Games By Cat
   getGamesByCat(cat: string): Observable<any> {
-    return this._HttpClient.get(
-      `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${cat}`
-    );
+    return this._HttpClient.get(`${environments.gamesApi}?category=${cat}`);
   }
 
   //Get Games By PlateForm
   getGamesByPlatForm(plat: string): Observable<any> {
-    return this._HttpClient.get(
-      `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plat}`
-    );
+    return this._HttpClient.get(`${environments.gamesApi}?platform=${plat}`);
   }
 
   //Get Games By Sorted
   getGamesBySored(sort: string): Observable<any> {
-    return this._HttpClient.get(
-      `https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=${sort}`
-    );
+    return this._HttpClient.get(`${environments.gamesApi}?sort-by=${sort}`);
   }
 
   //Get Games By Sorted Plat Cat    platform=browser&category=mmorpg&sort-by=release-date
   getGamesBySPC(cat: string, plat: string, sort: string): Observable<any> {
     return this._HttpClient.get(
-      `https://free-to-play-games-database.p.rapidapi.com/api/games?${
+      `${environments.gamesApi}?${
         plat != 'Browse By Platform:' ? `platform=${plat}&` : ''
       }${sort != 'Sort By:' ? `sort-by=${sort}&` : ''}${
         cat != 'all' ? `category=${cat}&` : ''

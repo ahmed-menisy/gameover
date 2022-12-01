@@ -16,53 +16,191 @@
 
       <!-- Right Form  -->
       <div class="col-12 col-md-7">
-        <form class="p-4">
+        <form
+          class="p-4"
+          [formGroup]="registerForm"
+          (ngSubmit)="setSignUpForm(registerForm)"
+        >
           <h2 class="h5 text-center mb-3">Create My Account!</h2>
 
           <!-- Inputs  -->
           <div class="data row g-3">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <input
+                #inp1
+                formControlName="first_name"
                 type="text"
                 class="form-control form-control-lg"
                 placeholder="FirstName"
               />
+
+              <ul
+                class="text-danger small"
+                *ngIf="
+                  registerForm.get('first_name')?.errors && inp1.value.length
+                "
+              >
+                <li
+                  class=""
+                  *ngIf="registerForm.get('first_name')?.hasError('required')"
+                >
+                  Name Required
+                </li>
+
+                <li
+                  class=""
+                  *ngIf="registerForm.get('first_name')?.hasError('maxlength')"
+                >
+                  Name Max (20)
+                </li>
+
+                <li
+                  class=""
+                  *ngIf="registerForm.get('first_name')?.hasError('minlength')"
+                >
+                  Name Min (3)
+                </li>
+              </ul>
             </div>
 
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <input
+                #inp2
+                formControlName="last_name"
                 type="text"
                 class="form-control form-control-lg"
                 placeholder="LastNAme"
               />
+
+              <ul
+                class="text-danger small"
+                *ngIf="
+                  registerForm.get('last_name')?.errors && inp2.value.length
+                "
+              >
+                <li
+                  class=""
+                  *ngIf="registerForm.get('last_name')?.hasError('required')"
+                >
+                  Name Required
+                </li>
+
+                <li
+                  class=""
+                  *ngIf="registerForm.get('last_name')?.hasError('maxlength')"
+                >
+                  Name Max (20)
+                </li>
+
+                <li
+                  class=""
+                  *ngIf="registerForm.get('last_name')?.hasError('minlength')"
+                >
+                  Name Min (3)
+                </li>
+              </ul>
             </div>
 
             <div class="col-12">
               <input
+                #inp3
+                formControlName="age"
                 type="number"
                 class="form-control form-control-lg"
                 placeholder="Enter Age"
               />
+
+              <ul
+                class="text-danger small"
+                *ngIf="registerForm.get('age')?.errors && inp3.value.length"
+              >
+                <li
+                  class=""
+                  *ngIf="registerForm.get('age')?.hasError('required')"
+                >
+                  Age Required
+                </li>
+
+                <li class="" *ngIf="registerForm.get('age')?.hasError('max')">
+                  Age Max (80)
+                </li>
+
+                <li class="" *ngIf="registerForm.get('age')?.hasError('min')">
+                  Age Min (18)
+                </li>
+              </ul>
             </div>
 
             <div class="col-12">
               <input
+                #inp4
                 type="email"
+                formControlName="email"
                 class="form-control form-control-lg"
                 placeholder="Email Address"
               />
+
+              <ul
+                class="text-danger small"
+                *ngIf="registerForm.get('email')?.errors && inp4.value.length"
+              >
+                <li
+                  class=""
+                  *ngIf="registerForm.get('email')?.hasError('required')"
+                >
+                  Email Required
+                </li>
+
+                <li
+                  class=""
+                  *ngIf="registerForm.get('email')?.hasError('email')"
+                >
+                  Email Invalid Pattern
+                </li>
+              </ul>
             </div>
 
             <div class="col-12">
               <input
+                #inp5
+                formControlName="password"
                 type="password"
                 class="form-control form-control-lg"
                 placeholder="Password"
               />
+              <ul
+                class="text-danger small"
+                *ngIf="
+                  registerForm.get('password')?.errors && inp5.value.length
+                "
+              >
+                <li
+                  class=""
+                  *ngIf="registerForm.get('password')?.hasError('required')"
+                >
+                  Password Required
+                </li>
+
+                <li
+                  class=""
+                  *ngIf="registerForm.get('password')?.hasError('pattern')"
+                >
+                  <ul class="m-0 p-0">
+                    <li>Password Includes [a-zA-Z0-9]</li>
+                    <li>Password Min (3)</li>
+                    <li>Password Max (10)</li>
+                  </ul>
+                </li>
+              </ul>
             </div>
 
             <div class="col-12">
-              <button class="btn-r btn-blue w-100">Create Account</button>
+              <button
+                class="btn-r btn-blue w-100"
+                [disabled]="registerForm.invalid"
+              >
+                Create Account
+              </button>
 
               <p class="fs-10 mt-2 text-center">
                 This site is protected by reCAPTCHA and the Google Privacy
