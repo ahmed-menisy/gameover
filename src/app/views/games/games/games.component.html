@@ -1,0 +1,386 @@
+<!-- --------------- Header --------------- -->
+<header class="games">
+  <div class="container py-4">
+    <h2 class="h4 text-light text-capitalize">
+      Top Free {{ curentCat === "all" ? "" : curentCat }} Games for PC and
+      Browser In {{ curentYear }}!
+    </h2>
+
+    <!-- Area Header  -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-2">
+      <div
+        class="col"
+        *ngFor="let game of games | slice: 0:3"
+        class="mb-3 cp"
+        (mouseenter)="playVideo(vid, spinner)"
+        (mouseleave)="stopVideo(vid, spinner)"
+      >
+        <article [routerLink]="['/details', game.id]">
+          <figure class="position-relative">
+            <div class="image">
+              <img [src]="game.thumbnail" [alt]="game.title" class="w-100" />
+            </div>
+
+            <!-- Video  -->
+            <video
+              #vid
+              preload="none"
+              muted="true"
+              loop
+              class="w-100 h-100 position-absolute top-0 start-0 d-none"
+              [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+            ></video>
+
+            <!-- Spinner  -->
+            <div
+              #spinner
+              class="layer position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-50 d-none justify-content-center align-items-center"
+            >
+              <div
+                class="spinner-grow c-blue"
+                style="width: 3rem; height: 3rem"
+                role="status"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+
+            <span
+              class="badge bg-blue text-white p-2 position-absolute bottom-0 end-0 m-2"
+              >Free</span
+            >
+          </figure>
+        </article>
+      </div>
+    </div>
+
+    <!-- Select Plate Form  -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="d-flex align-items-center gap-2 select-cust1">
+          <label for="Platform"> Platform: </label>
+
+          <select
+            id="Platform"
+            class="form-select form-select-sm border-0 select1"
+            aria-label=".form-select-sm example"
+          >
+            <option value="pc">
+              <div>pc</div>
+            </option>
+            <option value="browser ">
+              <div>browser</div>
+            </option>
+            <option value="all" [selected]="curentCat === 'all'">
+              <div>all</div>
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="d-flex align-items-center gap-2 select-cust2">
+          <label for="Genre"> Genre/Tag: </label>
+
+          <select
+            id="Genre"
+            class="form-select form-select-sm border-0 select2"
+            aria-label=".form-select-sm example"
+          >
+            <option value="mmorpg">
+              <div class="text-uppercase">mmorpg</div>
+            </option>
+
+            <option value="shooter">
+              <div class="text-uppercase">shooter</div>
+            </option>
+
+            <option value="strategy">
+              <div class="text-uppercase">strategy</div>
+            </option>
+
+            <option value="moba">
+              <div class="text-uppercase">moba</div>
+            </option>
+
+            <option value="racing">
+              <div class="text-uppercase">racing</div>
+            </option>
+
+            <option value="sports">
+              <div class="text-uppercase">sports</div>
+            </option>
+
+            <option value="social">
+              <div class="text-uppercase">social</div>
+            </option>
+
+            <option value="sandbox">
+              <div class="text-uppercase">sandbox</div>
+            </option>
+
+            <option value="open-world">
+              <div class="text-uppercase">open-world</div>
+            </option>
+
+            <option value="survival">
+              <div class="text-uppercase">survival</div>
+            </option>
+
+            <option value="pvp">
+              <div class="text-uppercase">pvp</div>
+            </option>
+
+            <option value="pve">
+              <div class="text-uppercase">pve</div>
+            </option>
+
+            <option value="pixel">
+              <div class="text-uppercase">pixel</div>
+            </option>
+
+            <option value="voxel">
+              <div class="text-uppercase">voxel</div>
+            </option>
+
+            <option value="zombie">
+              <div class="text-uppercase">zombie</div>
+            </option>
+
+            <option value="turn-based">
+              <div class="text-uppercase">turn-based</div>
+            </option>
+
+            <option value="first-person">
+              <div class="text-uppercase">first-person</div>
+            </option>
+
+            <option value="third-Person">
+              <div class="text-uppercase">third-Person</div>
+            </option>
+
+            <option value="top-down">
+              <div class="text-uppercase">top-down</div>
+            </option>
+
+            <option value="tank">
+              <div class="text-uppercase">tank</div>
+            </option>
+
+            <option value="space">
+              <div class="text-uppercase">space</div>
+            </option>
+
+            <option value="sailing">
+              <div class="text-uppercase">sailing</div>
+            </option>
+
+            <option value="side-scroller">
+              <div class="text-uppercase">side-scroller</div>
+            </option>
+
+            <option
+              value="  'superhero',
+"
+            >
+              <div class="text-uppercase">'superhero',</div>
+            </option>
+
+            <option value="permadeath">
+              <div class="text-uppercase">permadeath</div>
+            </option>
+
+            <option value="card">
+              <div class="text-uppercase">card</div>
+            </option>
+
+            <option value="battle-royale">
+              <div class="text-uppercase">battle-royale</div>
+            </option>
+
+            <option value="mmo">
+              <div class="text-uppercase">mmo</div>
+            </option>
+
+            <option value="mmofps">
+              <div class="text-uppercase">mmofps</div>
+            </option>
+
+            <option value="mmotps">
+              <div class="text-uppercase">mmotps</div>
+            </option>
+
+            <option value="3d">
+              <div class="text-uppercase">3d</div>
+            </option>
+
+            <option value="2d">
+              <div class="text-uppercase">2d</div>
+            </option>
+            <option value="anime">
+              <div class="text-uppercase">anime</div>
+            </option>
+            <option value="fantasy">
+              <div class="text-uppercase">fantasy</div>
+            </option>
+            <option value="sci-fi">
+              <div class="text-uppercase">sci-fi</div>
+            </option>
+            <option value="fighting">
+              <div class="text-uppercase">fighting</div>
+            </option>
+            <option value="action-rpg">
+              <div class="text-uppercase">action-rpg</div>
+            </option>
+            <option value="action">
+              <div class="text-uppercase">action</div>
+            </option>
+            <option value="military">
+              <div class="text-uppercase">military</div>
+            </option>
+            <option value="martial-arts">
+              <div class="text-uppercase">martial-arts</div>
+            </option>
+            <option value="flight">
+              <div class="text-uppercase">flight</div>
+            </option>
+            <option value="low-spec">
+              <div class="text-uppercase">low-spec</div>
+            </option>
+            <option value="tower-defense">
+              <div class="text-uppercase">tower-defense</div>
+            </option>
+            <option value="horror">
+              <div class="text-uppercase">horror</div>
+            </option>
+            <option value="mmorts">
+              <div class="text-uppercase">mmorts</div>
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="d-flex align-items-center gap-2 select-cust3">
+          <label for="Sort"> Sort By: </label>
+
+          <select
+            id="Sort"
+            class="form-select form-select-sm border-0 select3"
+            aria-label=".form-select-sm example"
+          >
+            <option value="release-date">
+              <div>release-date</div>
+            </option>
+            <option value="popularity">
+              <div>popularity</div>
+            </option>
+            <option value="alphabetical">
+              <div>alphabetical</div>
+            </option>
+            <option value="relevance">
+              <div>relevance</div>
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- --------------- End Header --------------- -->
+
+<!-- --------------- Area --------------- -->
+<section class="area py-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+      <!-- Items  -->
+      <div class="col" *ngFor="let game of games | slice: 0:curentLength">
+        <!-- Area  -->
+        <article
+          class="mb-3 h-100"
+          (mouseenter)="playVideo(vid, spinner)"
+          (mouseleave)="stopVideo(vid, spinner)"
+          [routerLink]="['/details', game.id]"
+        >
+          <div class="card h-100 cp bg-transparent shadow">
+            <div class="card-body">
+              <!-- Photo  -->
+              <figure class="image position-relative">
+                <img class="w-100" [src]="game.thumbnail" [alt]="game.title" />
+
+                <!-- Video  -->
+                <video
+                  #vid
+                  preload="none"
+                  muted="true"
+                  loop
+                  class="w-100 h-100 position-absolute top-0 start-0 d-none"
+                  [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+                ></video>
+
+                <!-- Spinner  -->
+                <div
+                  #spinner
+                  class="layer position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-50 d-none justify-content-center align-items-center"
+                >
+                  <div
+                    class="spinner-grow c-blue"
+                    style="width: 3rem; height: 3rem"
+                    role="status"
+                  >
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </figure>
+
+              <!-- Text  -->
+              <figcaption class="text mt-3">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h3 class="h6">{{ game.title }}</h3>
+
+                  <span class="badge bg-blue text-white p-2">Free</span>
+                </div>
+                <p class="small text-center">
+                  {{ game.short_description | term: 10 }}...
+                </p>
+              </figcaption>
+            </div>
+
+            <footer
+              class="d-flex card-footer justify-content-between align-items-center"
+            >
+              <span class="badge bg-second2 text-dark fs-10">{{
+                game.genre
+              }}</span>
+
+              <!-- Icons  -->
+              <div class="d-flex align-items-center gap-2">
+                <i
+                  *ngIf="game.platform?.includes('PC')"
+                  class="fa-brands fa-windows"
+                >
+                </i>
+                <i
+                  *ngIf="game.platform?.includes('Web')"
+                  class="fa-solid fa-window-maximize"
+                ></i>
+              </div>
+            </footer>
+          </div>
+        </article>
+      </div>
+
+      <!-- Loading  -->
+      <footer
+        *ngIf="loading"
+        class="d-flex align-items-center flex-grow-1 justify-content-center"
+      >
+        <span class="spinner-border">
+          <span class="sr-only">Loading...</span>
+        </span>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<!-- --------------- End Area --------------- -->

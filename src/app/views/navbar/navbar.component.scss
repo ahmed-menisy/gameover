@@ -1,0 +1,51 @@
+@import "../../../assets/scss/_custome";
+
+.navbar {
+  background-color: $main-color;
+
+  .navbar-brand {
+    font-family: "Nerko One", cursive;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: #fff;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .nav-link {
+    color: $nav-color;
+    @include trans(color);
+    &:hover {
+      color: #fff;
+    }
+
+    & + ul .dropdown-item {
+      font-size: 14px;
+      color: $second-color;
+      @include trans(all);
+
+      &:hover {
+        color: #fff;
+        background-color: $main-color;
+      }
+      &:active {
+        background-color: black;
+      }
+    }
+  }
+
+  .cu-btn {
+    padding: 13px 25px;
+    border: 1px solid $blue-color;
+    color: $blue-color;
+    border-radius: 5px;
+    @include trans(all);
+
+    &:hover {
+      border-color: #fff;
+    }
+  }
+}

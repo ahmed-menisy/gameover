@@ -1,0 +1,348 @@
+<!-- ------------------- Wraper -------------------  -->
+<header class="wraper">
+  <div class="container">
+    <div class="wraper-area">
+      <h1 class="h2">
+        Find & track the best <span class="c-blue">free-to-play</span> games!
+      </h1>
+
+      <p class="small my-3 lead text-muted">
+        Track what you've played and search for what to play next! Plus get free
+        premium loot!
+      </p>
+
+      <div class="butns-start">
+        <button
+          class="text-uppercase btn-r btn-blue me-2"
+          routerLink="/auth/signup"
+        >
+          Get Started <span class="small">it's free</span>
+        </button>
+
+        <button class="text-uppercase btn-r btn-light" routerLink="/games">
+          Browse Games
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ------------------- End Wraper -------------------  -->
+
+<!-- ------------------- Personalized Recommendations -------------------  -->
+<section class="recomend">
+  <div class="container">
+    <!-- ----- tite ----- -->
+    <div class="title">
+      <h2 class="h4">
+        <i class="fa-solid fa-robot"></i> Personalized Recommendations
+      </h2>
+      <p class="text-primary small">
+        <i class="fa-solid fa-circle-question"></i> Log In to view your
+        personalized recommendations!
+      </p>
+    </div>
+
+    <!-- ----- Recomedned Area ----- -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col" *ngFor="let game of games | slice: 0:3">
+        <article
+          class="card overflow-hidden shadow bg-transparent cp"
+          (mouseenter)="playVideo(vid, spinner)"
+          (mouseleave)="stopVideo(vid, spinner)"
+          [routerLink]="['/details', game.id]"
+        >
+          <figure class="position-relative">
+            <img
+              class="w-100 h-100 card-img-top"
+              [src]="game.thumbnail"
+              [alt]="game.title"
+            />
+
+            <!-- Video  -->
+            <video
+              #vid
+              preload="none"
+              muted="true"
+              loop
+              class="w-100 h-100 position-absolute top-0 start-0 d-none"
+              [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+            ></video>
+
+            <!-- Spinner  -->
+            <div
+              #spinner
+              class="layer position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-50 d-none justify-content-center align-items-center"
+            >
+              <div
+                class="spinner-grow c-blue"
+                style="width: 3rem; height: 3rem"
+                role="status"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </figure>
+
+          <figcaption
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <h3 class="card-title h5">{{ game.title }}</h3>
+
+            <p class="badge bg-blue mb-0 p-2 small">Free</p>
+          </figcaption>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ------------------- End Personalized Recommendations -------------------  -->
+
+<!-- -------------------  RecentAddly -------------------  -->
+<section class="recent">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Left  -->
+      <div class="col-12 col-lg-7">
+        <div>
+          <!-- tite  -->
+          <div class="title mb-4">
+            <h2 class="h4">Recently Added</h2>
+          </div>
+
+          <!-- Area  -->
+          <article
+            *ngFor="let game of games | slice: 10:20"
+            class="mb-3"
+            (mouseenter)="playVideo(vid, spinner)"
+            (mouseleave)="stopVideo(vid, spinner)"
+            [routerLink]="['/details', game.id]"
+          >
+            <div class="card cp bg-transparent shadow">
+              <div class="card-body d-flex align-items-center gap-3">
+                <!-- Photo  -->
+                <figure class="image flex-shrink-0 w-25 position-relative">
+                  <img
+                    class="w-100"
+                    [src]="game.thumbnail"
+                    [alt]="game.title"
+                  />
+
+                  <!-- Video  -->
+                  <video
+                    #vid
+                    preload="none"
+                    muted="true"
+                    loop
+                    class="w-100 h-100 position-absolute top-0 start-0 d-none"
+                    [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+                  ></video>
+
+                  <!-- Spinner  -->
+                  <div
+                    #spinner
+                    class="layer position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-50 d-none justify-content-center align-items-center"
+                  >
+                    <div
+                      class="spinner-grow c-blue"
+                      style="width: 3rem; height: 3rem"
+                      role="status"
+                    >
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </figure>
+
+                <!-- Text  -->
+                <figcaption class="text flex-grow-1">
+                  <h3 class="h5">{{ game.title }}</h3>
+                  <p class="small">{{ game.short_description | term: 7 }}...</p>
+                  <span class="badge bg-second2 text-dark fs-10">{{
+                    game.genre
+                  }}</span>
+                </figcaption>
+
+                <!-- Icons  -->
+                <div class="d-flex align-items-center gap-2">
+                  <span>
+                    <i
+                      *ngIf="game.platform?.includes('PC')"
+                      class="fa-brands fa-windows"
+                    ></i>
+                    <i
+                      *ngIf="game.platform?.includes('Web')"
+                      class="fa-solid fa-window-maximize"
+                    ></i>
+                  </span>
+                  <span class="badge bg-blue text-white p-2">Free</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Right  -->
+      <div class="col-12 col-lg-5">
+        <div>
+          <!-- tite  -->
+          <div class="title">
+            <h2 class="h4 mb-4">Most Played Today</h2>
+          </div>
+
+          <article
+            *ngFor="let game of games | slice: 20:25"
+            class="mb-3 cp"
+            (mouseenter)="playVideo(vid, spinner)"
+            (mouseleave)="stopVideo(vid, spinner)"
+            [routerLink]="['/details', game.id]"
+          >
+            <figure class="position-relative">
+              <div class="image">
+                <img [src]="game.thumbnail" [alt]="game.title" class="w-100" />
+              </div>
+
+              <!-- Video  -->
+              <video
+                #vid
+                preload="none"
+                muted="true"
+                loop
+                class="w-100 h-100 position-absolute top-0 start-0 d-none"
+                [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+              ></video>
+
+              <!-- Spinner  -->
+              <div
+                #spinner
+                class="layer position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-50 d-none justify-content-center align-items-center"
+              >
+                <div
+                  class="spinner-grow c-blue"
+                  style="width: 3rem; height: 3rem"
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+
+              <span
+                class="badge bg-blue text-white p-2 position-absolute bottom-0 end-0 m-2"
+                >Free</span
+              >
+            </figure>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- More Games  -->
+    <button
+      class="btn-r btn-light d-flex align-items-center gap-2 mx-auto mt-4"
+      routerLink="/games"
+    >
+      More Games<i class="fa-solid fa-angle-right"></i>
+    </button>
+  </div>
+</section>
+<!-- ------------------- End RecentAddly -------------------  -->
+
+<!-- -------------------  Community Recommendations -------------------  -->
+<section class="comunity">
+  <div class="container">
+    <!-- tite  -->
+    <div class="title">
+      <h2 class="h4">Community Recommendations</h2>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col" *ngFor="let game of games | slice: 22:24">
+        <article class="card card-body bg-dark">
+          <figure class="d-md-flex gap-4">
+            <!-- img  -->
+            <div
+              class="image flex-shrink-0 col-md-6 cp rounded overflow-hidden bg-main"
+              [routerLink]="['/details', game.id]"
+            >
+              <img [src]="game.thumbnail" [alt]="game.title" class="w-100" />
+
+              <div
+                class="d-flex justify-content-between align-items-center card-body"
+              >
+                <h3 class="h6">{{ game.title }}</h3>
+                <span class="badge text-white bg-blue p-2">Free</span>
+              </div>
+            </div>
+
+            <!-- text  -->
+            <figcaption class="d-grid align-content-between">
+              <p class="small">
+                <i class="fa-solid fa-quote-left"></i>
+                {{
+                  "
+           If you have been looking for a game like Breath of the Wild on pc,
+           look no further. It is clear that they took a lot of inspiration
+           from this game and made a fantastic game on pc. I can reccommend
+           this game for everyone that likes open world
+           
+           "
+                    | term: 30
+                }}...
+              </p>
+
+              <h4 class="h6">
+                <img
+                  class="img-fluid"
+                  src="./assets/images/by.png"
+                  alt="By Menisy"
+                />
+                By Menisy
+              </h4>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ------------------- End Community Recommendations -------------------  -->
+
+<!-- -------------------  More Fun and More Rewarding! -------------------  -->
+<section class="more pb-5">
+  <div class="container">
+    <div
+      class="d-md-flex align-items-center gap-3 border border-dark rounded shadow"
+    >
+      <div class="image flex-shrink-0 col-md-5">
+        <img class="w-100" src="./assets/images/ftg-img.jpg" alt="ftg img" />
+      </div>
+
+      <!-- Text  -->
+      <div class="text-center text-md-start">
+        <!-- tite  -->
+        <div class="title">
+          <h2 class="h4">More Fun and More Rewarding!</h2>
+
+          <p class="small">
+            We are FreeToGame, a new gaming platform that brings all the best
+            Free-to-Play Multiplayer Games and MMO Games into one place while
+            rewarding gamers with free premium loot and exlusive perks. Plus
+            maintain your own games library, track what you've played and search
+            for what to play next!
+          </p>
+
+          <div
+            class="d-flex align-items-center justify-content-md-start justify-content-center gap-3"
+          >
+            <button class="btn-r btn-blue" routerLink="/auth/signup">
+              Join Now
+            </button>
+            <button class="btn-r btn-light" routerLink="/aboutus">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ------------------- End More Fun and More Rewarding! -------------------  -->

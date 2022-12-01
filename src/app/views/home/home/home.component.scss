@@ -1,0 +1,24 @@
+@import "../../../../assets/scss/_custome";
+
+.wraper {
+  background: #1c1e22 url("../../../../assets/images/wraper.png") no-repeat top;
+  background-size: contain;
+  min-height: calc(40vh);
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+section {
+  padding: {
+    top: 80px;
+  }
+
+  article {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

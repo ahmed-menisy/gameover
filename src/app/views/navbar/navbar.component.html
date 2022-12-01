@@ -1,0 +1,323 @@
+<nav class="navbar navbar-expand-lg shadow-lg py-0" #navbar>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <div class="d-flex align-items-center">
+        <img src="../../../assets/images/logo-sm.png" alt="logo img" />
+        Game Over
+      </div>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left  -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Games  -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Free Games
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'mmorpg']"
+                #link
+                data-api="mmorpg"
+                >mmorpg</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'shooter']"
+                #link
+                data-api="shooter"
+                >shooter</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'moba']"
+                #link
+                data-api="moba"
+                >moba</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'anime']"
+                #link
+                data-api="anime"
+                >anime</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'battle-royale']"
+                #link
+                data-api="battle-royale"
+                >battle royale</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'strategy']"
+                #link
+                data-api="strategy"
+                >strategy</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'fantasy']"
+                #link
+                data-api="fantasy"
+                >fantasy</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'sci-fi']"
+                #link
+                data-api="sci-fi"
+                >sci-fi</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'card']"
+                #link
+                data-api="card"
+                >card games</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'racing']"
+                #link
+                data-api="racing"
+                >racing</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'fighting']"
+                #link
+                data-api="fighting"
+                >fighting</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'social']"
+                #link
+                data-api="social"
+                >social</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/games', 'sports']"
+                #link
+                data-api="sports"
+                >sports</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Browser -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Browser Games
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'mmorpg']"
+                #link
+                data-api="mmorpg"
+                >Browser mmorpg</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'shooter']"
+                #link
+                data-api="shooter"
+                >Browser shooter</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'moba']"
+                #link
+                data-api="moba"
+                >Browser moba</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'anime']"
+                #link
+                data-api="anime"
+                >Browser anime</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'battle-royale']"
+                #link
+                data-api="battle-royale"
+                >Browser battle royale</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'strategy']"
+                #link
+                data-api="strategy"
+                >Browser strategy</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'fantasy']"
+                #link
+                data-api="fantasy"
+                >Browser fantasy</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'sci-fi']"
+                #link
+                data-api="sci-fi"
+                >Browser sci-fi</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'card']"
+                #link
+                data-api="card"
+                >Browser card games</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'racing']"
+                #link
+                data-api="racing"
+                >Browser racing</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'fighting']"
+                #link
+                data-api="fighting"
+                >Browser fighting</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'social']"
+                #link
+                data-api="social"
+                >Browser social</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-capitalize"
+                [routerLink]="['/browser', 'sports']"
+                #link
+                data-api="sports"
+                >Browser sports</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Right  -->
+      <ul
+        class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center flex-row gap-4 gap-md-0"
+      >
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void" routerLink="/search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void" routerLink="/lib">
+            <i class="fa-solid fa-clone"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void" routerLink="/auth/signin">
+            Log In
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link cu-btn ms-lg-3"
+            href="javascript:void"
+            routerLink="/auth/signup"
+          >
+            Join Free
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

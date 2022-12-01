@@ -1,0 +1,89 @@
+<section class="register">
+  <div
+    class="container vh-100 d-flex align-items-center justify-content-center"
+  >
+    <div class="row shadow rounded overflow-hidden bg-darklight g-0">
+      <!-- Left Image  -->
+      <div class="col-12 col-md-5 d-none d-md-block">
+        <div
+          class="image flex-shrink-0 h-100"
+          style="
+            background: url('./assets/images/register.jpg') center / cover
+              no-repeat;
+          "
+        ></div>
+      </div>
+
+      <!-- Right Form  -->
+      <div class="col-12 col-md-7">
+        <form class="p-4">
+          <h2 class="h5 text-center mb-3">Create My Account!</h2>
+
+          <!-- Inputs  -->
+          <div class="data row g-3">
+            <div class="col-6">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="FirstName"
+              />
+            </div>
+
+            <div class="col-6">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="LastNAme"
+              />
+            </div>
+
+            <div class="col-12">
+              <input
+                type="number"
+                class="form-control form-control-lg"
+                placeholder="Enter Age"
+              />
+            </div>
+
+            <div class="col-12">
+              <input
+                type="email"
+                class="form-control form-control-lg"
+                placeholder="Email Address"
+              />
+            </div>
+
+            <div class="col-12">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="col-12">
+              <button class="btn-r btn-blue w-100">Create Account</button>
+
+              <p class="fs-10 mt-2 text-center">
+                This site is protected by reCAPTCHA and the Google Privacy
+                Policy and Terms of Service apply.
+              </p>
+            </div>
+
+            <div class="col-12">
+              <p class="mt-1 text-center">
+                Already a member?
+                <span
+                  class="btn-link text-decoration-none cp"
+                  routerLink="/auth/signin"
+                  >Log In
+                  <i class="fa-solid fa-angle-right fa-fw"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

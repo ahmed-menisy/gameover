@@ -1,0 +1,22 @@
+// ------------------------------------ Custome Sass
+
+// ---------- Variables
+
+$main-color: rgb(39, 43, 48);
+$dark-color: rgb(28, 30, 34);
+$dark-light: #32383e;
+$second-color: #aaa;
+$nav-color: rgba(255, 255, 255, 0.5);
+$seond-color2: #7a8288;
+$blue-color: #4799eb;
+
+// ---------- Mixing
+@mixin trans($pro, $dur: 0.3s) {
+  transition: $pro $dur;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,66 @@
+<section class="register">
+  <div
+    class="container vh-100 d-flex align-items-center justify-content-center"
+  >
+    <div class="row shadow rounded overflow-hidden bg-darklight g-0 w-100">
+      <!-- Left Image  -->
+      <div class="col-12 col-md-5 d-none d-md-block">
+        <div
+          class="image flex-shrink-0 h-100"
+          style="
+            background: url('./assets/images/log.jpg') center / cover no-repeat;
+          "
+        ></div>
+      </div>
+
+      <!-- Right Form  -->
+      <div class="col-12 col-md-7">
+        <form class="p-4">
+          <div class="text-center">
+            <img
+              src="../../../../assets/images/logo-sm.png"
+              alt="log sm"
+              class="img-fluid my-3"
+            />
+          </div>
+          <h2 class="h5 text-center mb-4">Log in to FreeToGame</h2>
+
+          <!-- Inputs  -->
+          <div class="data row g-3">
+            <div class="col-12">
+              <input
+                type="email"
+                class="form-control form-control-lg"
+                placeholder="Email Address"
+              />
+            </div>
+
+            <div class="col-12">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="col-12">
+              <button class="btn-r btn-blue w-100">Login</button>
+            </div>
+
+            <div class="col-12">
+              <p class="mt-1 text-center">
+                Not a member yet?
+                <span
+                  class="btn-link text-decoration-none cp"
+                  routerLink="/auth/signup"
+                  >Create Account
+                  <i class="fa-solid fa-angle-right fa-fw"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,153 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+@import "./assets/scss/_custome";
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+
+body {
+  background-color: $main-color;
+  height: 100%;
+  width: 100%;
+  color: $second-color;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $main-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $dark-color;
+  border-radius: 50px;
+}
+
+// ------------------------------------ Custome font
+.fs-10 {
+  font-size: 10px !important;
+}
+// ------------------------------------ Custome Colors
+.c-blue {
+  color: $blue-color;
+}
+
+.bg-main {
+  background-color: $main-color;
+}
+
+.bg-blue {
+  background-color: $blue-color;
+}
+
+.bg-second {
+  background-color: $second-color;
+}
+
+.bg-dark {
+  background-color: $dark-color;
+}
+
+.bg-darklight {
+  background-color: $dark-light;
+}
+
+.bg-second2 {
+  background-color: $seond-color2;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+// ------------------------------------ Custome Component
+
+.btn-r {
+  display: inline-block;
+  color: #aaa;
+  text-align: center;
+
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-blue {
+  background-image: linear-gradient(#4799eb, #4799eb 60%, #49acff);
+  color: #fff;
+  background-color: #4799eb;
+  border-color: #4799eb;
+
+  &:hover {
+    background-image: linear-gradient(#358de6, #358de6 40%, #2174b9);
+    background-color: #367cc6;
+    border-color: #367cc2;
+  }
+}
+
+.btn-light {
+  border-color: $second-color;
+  @include trans(all);
+
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+}
+
+.card-img-top {
+  height: 138px;
+}
+
+.custom-select__option--value {
+  background-color: $main-color !important;
+  border: unset !important;
+}
+
+.custom-select__dropdown {
+  background-color: $dark-color !important;
+  border: unset !important;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: unset;
+  overflow-y: auto !important;
+  max-height: 300px;
+}
+
+.custom-select__option {
+  color: $seond-color2;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $dark-light;
+  }
+}
+
+// Form Controls Edite
+.form-control {
+  background-color: $dark-color;
+
+  border: unset;
+  outline: unset;
+
+  font-size: 14px;
+  height: 50px;
+
+  &:focus {
+    box-shadow: unset;
+    color: $second-color;
+    background-color: $dark-color;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    display: none;
+  }
+}

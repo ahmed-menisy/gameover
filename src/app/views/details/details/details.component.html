@@ -1,0 +1,242 @@
+<header
+  class="py-3"
+  style="background-image: url('{{ game.thumbnail | sliceuntile }}')"
+>
+  <div
+    class="container"
+    (mouseenter)="playVideo(vid, spinner)"
+    (mouseleave)="stopVideo(vid, spinner)"
+  >
+    <div class="row g-4">
+      <!-- Left  -->
+      <div class="col-12 col-md-4">
+        <div
+          class="card overflow-hidden border-0 bg-transparent cp position-sticky"
+          style="top: 60px"
+        >
+          <figure class="position-relative mb-0">
+            <img
+              class="w-100 h-100 card-img-top"
+              [src]="game.thumbnail"
+              [alt]="game.title"
+            />
+
+            <!-- Video  -->
+            <video
+              #vid
+              preload="none"
+              muted="true"
+              loop
+              class="w-100 h-100 position-absolute top-0 start-0 d-none"
+              [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+            ></video>
+
+            <!-- Spinner  -->
+            <div
+              #spinner
+              class="layer position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-50 d-none justify-content-center align-items-center"
+            >
+              <div
+                class="spinner-grow c-blue"
+                style="width: 3rem; height: 3rem"
+                role="status"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </figure>
+
+          <div class="mt-4 hstack gap-2">
+            <span
+              class="badge p-3 bg-darklight text-light text-uppercase fw-lighter"
+              >Free</span
+            >
+            <a
+              [href]="game.game_url"
+              target="_blank"
+              class="text-uppercase btn-r text-white text-decoration-none btn-blue d-flex align-items-center gap-1 flex-grow-1 justify-content-center"
+            >
+              play now <i class="fa-solid fa-play"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right  -->
+      <div class="col-12 col-md-8">
+        <!-- NAv Top  -->
+        <div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a
+                  class="small text-reset text-decoration-none"
+                  routerLink="/home"
+                  >Home</a
+                >
+              </li>
+              <li class="breadcrumb-item">
+                <a
+                  class="small text-reset text-decoration-none"
+                  routerLink="/games"
+                  >Free Games</a
+                >
+              </li>
+              <li class="breadcrumb-item active small" aria-current="page">
+                {{ game.title }}
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <!-- Area  -->
+        <article>
+          <!-- ----- tite ----- -->
+          <div class="title">
+            <h2 class="h3">Diablo Immortal</h2>
+          </div>
+
+          <!-- List Top  -->
+          <ul class="my-3 d-grid gap-4 p-0 m-0">
+            <li class="d-flex align-items-center gap-3">
+              <i class="fas fa-star fa-xl"></i>
+              <span>Massively Positive</span>
+            </li>
+            <li class="d-flex align-items-center gap-3">
+              <i class="fa-solid fa-hill-rockslide fa-xl"></i>
+              <span>Status {{ game.status }}</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- About  -->
+        <article>
+          <!-- ----- tite ----- -->
+          <div class="title">
+            <h2 class="h3">About Diablo Immortal</h2>
+          </div>
+
+          <!-- text  -->
+          <div class="text-details" [ngClass]="{ show: show }">
+            <p *ngFor="let text of game.description | split" class="mb-3">
+              {{ text }}
+            </p>
+          </div>
+
+          <!-- Read More  -->
+          <p class="text-light mt-3 cp" role="button" (click)="showText()">
+            Read
+            <span *ngIf="!show">More</span>
+            <span *ngIf="show">Less</span>
+          </p>
+
+          <hr />
+          <!-- Disclosure -->
+          <p class="text-muted" style="font-size: 12px">
+            Disclosure: FreeToGame works closely with publishers and developers
+            to offer a free and rewarding experience. In order to keep
+            everything free to use we may sometimes earn a small commission from
+            some partners. Find more info in our FAQ page.
+          </p>
+
+          <!-- Additional Information -->
+          <h3>Additional Information</h3>
+          <p class="small">
+            <i class="fas fa-info-circle me-2"></i> Please note this
+            free-to-play game may or may not offer optional in-game purchases.
+          </p>
+
+          <hr />
+          <!-- Details  -->
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col">
+              <div class="item">
+                <h4 class="h5 mb-0">Title</h4>
+                <p class="text-light">{{ game.title }}</p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="item">
+                <h4 class="h5 mb-0">Developer</h4>
+                <p class="text-light">{{ game.developer }}</p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="item">
+                <h4 class="h5 mb-0">Publisher</h4>
+                <p class="text-light">{{ game.publisher }}</p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="item">
+                <h4 class="h5 mb-0">Release Date</h4>
+                <p class="text-light">{{ game.release_date }}</p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="item">
+                <h4 class="h5 mb-0">Genre</h4>
+                <p class="text-light">{{ game.genre }}</p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="item">
+                <h4 class="h5 mb-0">Platform</h4>
+
+                <div class="d-flex align-items-center gap-2">
+                  <i
+                    *ngIf="game.platform === 'Windows'"
+                    class="fa-brands fa-windows"
+                  ></i>
+                  <i
+                    *ngIf="game.platform === 'Web Browser'"
+                    class="fa-solid fa-window-maximize"
+                  ></i>
+                  <p class="text-light mb-0">{{ game.platform }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diablo Immortal Screenshots -->
+          <h3>Diablo Immortal Screenshots</h3>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 pb-5">
+            <div class="col" *ngFor="let screen of game.screenshots">
+              <img
+                class="w-100 rounded"
+                [src]="screen.image"
+                [alt]="game.title"
+              />
+            </div>
+          </div>
+
+          <!-- Minimum System Requirements  -->
+          <h3 *ngIf="game.minimum_system_requirements">
+            Minimum System Requirements ({{ game.platform }})
+          </h3>
+          <hr />
+          <div class="row row-cols-1 row-cols-md-2 gx-4 pb-5">
+            <div
+              class="col"
+              *ngFor="
+                let required of game.minimum_system_requirements | keyvalue
+              "
+            >
+              <div class="item">
+                <h4 class="h6 mb-0 fw-light text-uppercase">
+                  {{ required.key }}
+                </h4>
+                <p class="text-light small text-muted">{{ required.value }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</header>
