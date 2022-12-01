@@ -28,7 +28,7 @@
               muted="true"
               loop
               class="w-100 h-100 position-absolute top-0 start-0 d-none"
-              [src]="game.thumbnail | sliceuntile: 'videoplayback.webm'"
+              [src]="game.thumbnail | sliceuntile : 'videoplayback.webm'"
             ></video>
 
             <!-- Spinner  -->
@@ -78,7 +78,9 @@
               <li class="breadcrumb-item">
                 <a
                   class="small text-reset text-decoration-none"
-                  routerLink="/games"
+                  [routerLink]="[
+                    game.platform?.includes('pc') ? '/games' : '/browser'
+                  ]"
                   >Free Games</a
                 >
               </li>
@@ -229,9 +231,11 @@
             >
               <div class="item">
                 <h4 class="h6 mb-0 fw-light text-uppercase">
-                  {{ required.key }}
+                  {{ required.value ? required.key : "" }}
                 </h4>
-                <p class="text-light small text-muted">{{ required.value }}</p>
+                <p class="text-light small text-muted">
+                  {{ required.value }}
+                </p>
               </div>
             </div>
           </div>

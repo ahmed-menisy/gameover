@@ -20,6 +20,7 @@ export class DetailsComponent implements OnInit {
   // Get Games ID
   ngOnInit(): void {
     const curentId: number = this._ActivatedRoute.snapshot.params['id'];
+
     this._GamesService.getGamesId(curentId).subscribe({
       next: (response) => {
         console.log(response);
