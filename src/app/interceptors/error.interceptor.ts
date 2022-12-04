@@ -29,9 +29,13 @@ export class ErrorInterceptor implements HttpInterceptor {
           ) &&
           err.status === 0
         ) {
-          if (request.url.includes('https://routeegypt.herokuapp.com/'))
+          if (request.url.includes('https://routeegypt.herokuapp.com/')) {
             environments.authApi = `https://route-egypt-api.herokuapp.com/`;
-          else environments.authApi = `https://routeegypt.herokuapp.com/`;
+          } else if (
+            request.url.includes('https://route-egypt-api.herokuapp.com/')
+          ) {
+            environments.authApi = `https://sticky-note-fe.vercel.app/`;
+          }
 
           this.toastrService.error(
             `${err.name}\n(Error In Api) \nPlease Try Again `,
